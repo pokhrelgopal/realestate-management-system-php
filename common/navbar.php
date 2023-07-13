@@ -1,11 +1,11 @@
-<nav class="px-4 container mx-auto sm:px-6 lg:px-8 border-1 my-0 md:my-3 shadow-md bg-ivory rounded-lg text-lessDark">
+<nav class="px-4 container mx-auto px-8 border-1 my-0 my-3 shadow-md bg-ivory rounded-lg text-lessDark">
     <div class="flex items-center justify-between h-16 lg:h-20">
         <div class="flex-shrink-0">
             <a href="/realestate-change/index.php" title="" class="flex">
                 <p class=" font-bold uppercase text-2xl">homely</p>
             </a>
         </div>
-        <div class="hidden ml-auto lg:flex lg:items-center lg:justify-center lg:space-x-10">
+        <div class="ml-auto lg:flex lg:items-center lg:justify-center lg:space-x-10">
             <a href="/realestate-change/index.php" title="" class="text-lg text-black">
                 Home </a>
             <a href="/realestate-change/listings.php" title="" class="text-lg text-black">

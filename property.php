@@ -87,13 +87,10 @@
                         <h4 class='text-md text-red-600 font-semibold capitalize'>• For
                             <?php echo $property_avilability; ?> </h4>
                     </div>
-                    <!-- <div>
-                        <button class='bg-black text-white px-3 py-2 rounded'>Book Appointment</button>
-                    </div> -->
                 </div>
 
-                <div>
-                    <img src='/realestate-change/<?php echo $property_image; ?>' class='rounded w-full h-[70vh] object-cover' alt='Property Image'>
+                <div class="flex justify-center">
+                    <img src='/realestate-change/<?php echo $property_image; ?>' class='rounded w-auto object-contain' alt='Property Image' style="height: 90vh;">
                 </div>
 
                 <div class='grid grid-cols-3 gap-4 pt-8'>
@@ -175,7 +172,8 @@
                                                 <textarea name='message_text' id='message' cols='30' rows='10' class='w-full bg-ivory outline-0 rounded p-3' required></textarea>
                                             </div>
                                             <div>
-                                                <button type='submit' name='submit_message' class='bg-lessDark text-light py-3 rounded w-full'>
+                                                <button 
+                                                style='background-color: black;' type='submit' name='submit_message' class='bg-lessDark text-light py-3 rounded w-full'>
                                                 Request Appointment
                                                 <i class='ml-3 fa-solid fa-paper-plane'></i>
                                                 </button>

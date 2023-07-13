@@ -74,7 +74,7 @@
                             <span id="iframeError" class="text-red-500"></span>
                             <textarea name="iframe" id="iframe" cols="30" rows="5" class="bg-ivory p-3 rounded"></textarea>
                         </div>
-                        <button type="submit" id="submit" name="submit" class="w-full bg-lessDark rounded text-light py-4">List
+                        <button style="background-color: black;" type="submit" id="submit" name="submit" class="w-full rounded text-light py-4">List
                             Property</button>
                     </div>
                 </form>

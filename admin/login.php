@@ -18,10 +18,9 @@ include 'common/connection.php';
             </div>
             <div class="flex flex-col space-y-1">
                 <label for="" class="text-lessDark">Password</label>
-                <input type="password" name="password" id=""
-                    class="p-2 rounded border bg-ivory text-lessDark outline-0">
+                <input type="password" name="password" id="" class="p-2 rounded border bg-ivory text-lessDark outline-0">
             </div>
-            <button type="submit" name="submit" class="bg-lightGray w-full text-light p-2 my-6 rounded">Login</button>
+            <button style="background-color: green;" type="submit" name="submit" class="w-full text-light p-2 my-6 rounded">Login</button>
         </form>
     </div>
 </body>

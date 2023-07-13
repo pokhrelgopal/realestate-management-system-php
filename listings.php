@@ -73,8 +73,7 @@ if (isset($_POST['search'])) {
             <div class="shadow-lg p-5 h-fit rounded bg-gray-200">
                 <form action="listings.php" method="POST" class="space-y-4">
                     <div class="flex flex-col space-y-2">
-                        <input type="text" name="keyword" placeholder="Enter Keyword"
-                            class="bg-ivory rounded py-3 px-4 outline-0">
+                        <input type="text" name="keyword" placeholder="Enter Keyword" class="bg-ivory rounded py-3 px-4 outline-0">
                         <label for="province">Province</label>
                         <select name="province" class="bg-ivory rounded py-3 px-4 outline-0">
                             <option value="any">Any</option>
@@ -89,8 +88,7 @@ if (isset($_POST['search'])) {
                     </div>
                     <div class="flex flex-col space-y-2">
                         <label for="city">City</label>
-                        <input type="text" name="city" placeholder="Enter name of the City"
-                            class="bg-ivory rounded py-3 px-4 outline-0">
+                        <input type="text" name="city" placeholder="Enter name of the City" class="bg-ivory rounded py-3 px-4 outline-0">
                     </div>
                     <div class="flex flex-col space-y-2">
                         <label for="building_type">Building Type</label>
@@ -111,17 +109,14 @@ if (isset($_POST['search'])) {
                     </div>
                     <div class="flex flex-col space-y-2">
                         <label for="min_price">Min Price</label>
-                        <input type="number" name="min_price" placeholder="Enter Min Price"
-                            class="bg-ivory rounded py-3 px-4 outline-0">
+                        <input type="number" name="min_price" placeholder="Enter Min Price" class="bg-ivory rounded py-3 px-4 outline-0">
                     </div>
                     <div class="flex flex-col space-y-2">
                         <label for="max_price">Max Price</label>
-                        <input type="number" name="max_price" placeholder="Enter Max Price"
-                            class="bg-ivory rounded py-3 px-4 outline-0">
+                        <input type="number" name="max_price" placeholder="Enter Max Price" class="bg-ivory rounded py-3 px-4 outline-0">
                     </div>
 
-                    <button type="submit" name="search"
-                        class="bg-lessDark rounded text-light w-full py-3">Submit</button>
+                    <button type="submit" name="search" class="bg-black text-light rounded w-full py-3" style="background-color: black;">Submit</button>
                     <button type="reset">
                         <i class="fas fa-redo"></i>
                         <span>Reset</span>
@@ -131,25 +126,24 @@ if (isset($_POST['search'])) {
             <div class="col-span-3">
                 <div class="grid grid-cols-1 gap-8 text-center md:grid-cols-3 lg:gap-y-16">
                     <?php if (isset($filteredResults) && !empty($filteredResults)) : ?>
-                    <?php foreach ($filteredResults as $result) : ?>
-                    <a href="property.php/?id=<?php echo $result['property_id'] ?>">
-                        <div class="rounded-xl shadow-md">
-                            <div class="image h-60 w-full">
-                                <img src="<?php echo $result['img_url'] ?>"
-                                    class="h-56 w-full object-cover rounded-t-xl" alt="">
-                            </div>
-                            <div class="flex flex-col p-3 space-y-3">
-                                <div class="flex items-center justify-between">
-                                    <p class="text-left text-lg font-semibold"><?php echo $result['title'] ?></p>
+                        <?php foreach ($filteredResults as $result) : ?>
+                            <a href="property.php/?id=<?php echo $result['property_id'] ?>">
+                                <div class="rounded-xl shadow-md">
+                                    <div class="image h-60 w-full">
+                                        <img src="<?php echo $result['img_url'] ?>" class="h-56 w-full object-cover rounded-t-xl" alt="">
+                                    </div>
+                                    <div class="flex flex-col p-3 space-y-3">
+                                        <div class="flex items-center justify-between">
+                                            <p class="text-left text-lg font-semibold"><?php echo $result['title'] ?></p>
+                                        </div>
+                                        <p class="text-left text-sm"><?php echo $result['location'] ?></p>
+                                        <div class="flex items-center justify-between">
+                                            <p class="capitalize"> Listed for <?php echo $result['listing_type'] ?> </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <p class="text-left text-sm"><?php echo $result['location'] ?></p>
-                                <div class="flex items-center justify-between">
-                                    <p class="capitalize"> Listed for <?php echo $result['listing_type'] ?> </p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <?php endforeach; ?>
+                            </a>
+                        <?php endforeach; ?>
                     <?php else :
                         $sql = "SELECT * FROM properties where status = 'on'";
                         $result = mysqli_query($conn, $sql);

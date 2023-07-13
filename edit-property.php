@@ -45,12 +45,10 @@
                         <div class="space-y-4">
                             <div class="form-control flex flex-col space-y-1">
                                 <label for="propertyType">Type of Property</label>
-                                <select name="property_type" id="property_type" class="bg-ivory outline-0 p-3 rounded"
-                                    required>
+                                <select name="property_type" id="property_type" class="bg-ivory outline-0 p-3 rounded" required>
                                     <option value="house" <?php if ($property_type == 'house') echo 'selected'; ?>>House
                                     </option>
-                                    <option value="apartment"
-                                        <?php if ($property_type == 'apartment') echo 'selected'; ?>>Apartment</option>
+                                    <option value="apartment" <?php if ($property_type == 'apartment') echo 'selected'; ?>>Apartment</option>
                                     <option value="room" <?php if ($property_type == 'room') echo 'selected'; ?>>Room
                                     </option>
                                 </select>
@@ -61,44 +59,34 @@
                                 <select name="province" id="province" class="bg-ivory outline-0 p-3 rounded" required>
                                     <option value="koshi" <?php if ($property_province == 'koshi') echo 'selected'; ?>>
                                         Koshi</option>
-                                    <option value="madhesh"
-                                        <?php if ($property_province == 'madhesh') echo 'selected'; ?>>Madhesh</option>
-                                    <option value="bagmati"
-                                        <?php if ($property_province == 'bagmati') echo 'selected'; ?>>Bagmati</option>
-                                    <option value="gandaki"
-                                        <?php if ($property_province == 'gandaki') echo 'selected'; ?>>Gandaki</option>
-                                    <option value="lumbini"
-                                        <?php if ($property_province == 'lumbini') echo 'selected'; ?>>Lumbini</option>
-                                    <option value="karnali"
-                                        <?php if ($property_province == 'karnali') echo 'selected'; ?>>Karnali</option>
-                                    <option value="sudurpaschim"
-                                        <?php if ($property_province == 'sudurpaschim') echo 'selected'; ?>>Sudurpaschim
+                                    <option value="madhesh" <?php if ($property_province == 'madhesh') echo 'selected'; ?>>Madhesh</option>
+                                    <option value="bagmati" <?php if ($property_province == 'bagmati') echo 'selected'; ?>>Bagmati</option>
+                                    <option value="gandaki" <?php if ($property_province == 'gandaki') echo 'selected'; ?>>Gandaki</option>
+                                    <option value="lumbini" <?php if ($property_province == 'lumbini') echo 'selected'; ?>>Lumbini</option>
+                                    <option value="karnali" <?php if ($property_province == 'karnali') echo 'selected'; ?>>Karnali</option>
+                                    <option value="sudurpaschim" <?php if ($property_province == 'sudurpaschim') echo 'selected'; ?>>Sudurpaschim
                                     </option>
                                 </select>
 
                             </div>
                             <div class="form-control flex flex-col space-y-1">
                                 <label for="">City Name</label>
-                                <input type="text" name="city" id="city" value="<?php echo $property_city ?>"
-                                    class="bg-ivory outline-0 p-3 rounded" required>
+                                <input type="text" name="city" id="city" value="<?php echo $property_city ?>" class="bg-ivory outline-0 p-3 rounded" required>
                             </div>
                             <div class="form-control flex flex-col space-y-1">
                                 <label for="">Title of Listing</label>
-                                <input type="text" name="title" id="title" value="<?php echo $property_title ?>"
-                                    class="bg-ivory outline-0 p-3 rounded" required>
+                                <input type="text" name="title" id="title" value="<?php echo $property_title ?>" class="bg-ivory outline-0 p-3 rounded" required>
                             </div>
                             <div class="form-control flex flex-col space-y-1">
                                 <label for="">Listing Type</label>
-                                <select name="listing_type" id="listing_type" class="bg-ivory outline-0 p-3 rounded"
-                                    required>
+                                <select name="listing_type" id="listing_type" class="bg-ivory outline-0 p-3 rounded" required>
                                     <option value="sale">Sale</option>
                                     <option value="rent">Rent</option>
                                 </select>
                             </div>
                             <div class="form-control flex flex-col space-y-1">
                                 <label for="">Description of Listed Property</label>
-                                <textarea name="about" id="about" cols="30" rows="10"
-                                    class="bg-ivory outline-0 p-3 rounded"><?php echo $property_about ?></textarea>
+                                <textarea name="about" id="about" cols="30" rows="10" class="bg-ivory outline-0 p-3 rounded"><?php echo $property_about ?></textarea>
 
                             </div>
                             <div class="form-control flex flex-col space-y-1">
@@ -111,64 +99,61 @@
                             </div>
                             <div class="form-control flex flex-col space-y-1">
                                 <label for="">Price of Listed Property</label>
-                                <input type="number" name="price" id="price" class="bg-ivory outline-0 p-3 rounded"
-                                    value="<?php echo $property_price ?>">
+                                <input type="number" name="price" id="price" class="bg-ivory outline-0 p-3 rounded" value="<?php echo $property_price ?>">
                             </div>
                             <div class="form-control flex flex-col space-y-1">
                                 <label for="">Iframe of location (optional)</label>
-                                <textarea name="iframe" id="iframe" cols="30" rows="5"
-                                    class="bg-ivory outline-0 p-3 rounded"><?php echo $property_iframe ?></textarea>
+                                <textarea name="iframe" id="iframe" cols="30" rows="5" class="bg-ivory outline-0 p-3 rounded"><?php echo $property_iframe ?></textarea>
                             </div>
-                            <button type="submit" id="submit" name="update"
-                                class="bg-lessDark w-full text-light py-3 rounded">Update Property</button>
+                            <button style="background-color: black;" type="submit" id="submit" name="update" class="w-full text-light py-3 rounded">Update Property</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
         <script>
-        submit.addEventListener('click', (e) => {
-            const city = document.getElementById('city').value;
-            const title = document.getElementById('title').value;
-            const iframe = document.getElementById('iframe').value;
-            const submit = document.getElementById('submit');
-            const cityError = document.getElementById('cityError');
-            const titleError = document.getElementById('titleError');
-            const iframeError = document.getElementById('iframeError');
+            submit.addEventListener('click', (e) => {
+                const city = document.getElementById('city').value;
+                const title = document.getElementById('title').value;
+                const iframe = document.getElementById('iframe').value;
+                const submit = document.getElementById('submit');
+                const cityError = document.getElementById('cityError');
+                const titleError = document.getElementById('titleError');
+                const iframeError = document.getElementById('iframeError');
 
-            // city validation
-            if (city === '') {
-                e.preventDefault();
-                cityError.innerHTML = 'City name is required';
-            } else if (/\d/.test(city)) {
-                e.preventDefault();
-                cityError.innerHTML = 'City name must not contain numbers';
-            } else {
-                cityError.innerHTML = '';
-            }
-
-            // title validation
-            if (title === '') {
-                e.preventDefault();
-                titleError.innerHTML = 'Title is required';
-            } else if (!/[a-zA-Z]/.test(title)) {
-                e.preventDefault();
-                titleError.innerHTML = 'Title must have text and not only numbers';
-            } else {
-                titleError.innerHTML = '';
-            }
-
-            // iframe validation
-            if (iframe !== '') {
-                if (!/^<iframe[\s\S]*<\/iframe>$/.test(iframe)) {
+                // city validation
+                if (city === '') {
                     e.preventDefault();
-                    iframeError.innerHTML = 'Iframe must be valid or empty.';
+                    cityError.innerHTML = 'City name is required';
+                } else if (/\d/.test(city)) {
+                    e.preventDefault();
+                    cityError.innerHTML = 'City name must not contain numbers';
                 } else {
-                    iframeError.innerHTML = '';
+                    cityError.innerHTML = '';
                 }
-            }
 
-        })
+                // title validation
+                if (title === '') {
+                    e.preventDefault();
+                    titleError.innerHTML = 'Title is required';
+                } else if (!/[a-zA-Z]/.test(title)) {
+                    e.preventDefault();
+                    titleError.innerHTML = 'Title must have text and not only numbers';
+                } else {
+                    titleError.innerHTML = '';
+                }
+
+                // iframe validation
+                if (iframe !== '') {
+                    if (!/^<iframe[\s\S]*<\/iframe>$/.test(iframe)) {
+                        e.preventDefault();
+                        iframeError.innerHTML = 'Iframe must be valid or empty.';
+                    } else {
+                        iframeError.innerHTML = '';
+                    }
+                }
+
+            })
         </script>
 </body>
 

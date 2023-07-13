@@ -38,8 +38,8 @@
                             class="bg-white p-4 rounded bg-ivory outline-0" value="" required>
                     </div>
 
-                    <button type="submit" name="changePassword"
-                        class=" rounded text-light bg-lessDark py-4 w-full">Change
+                    <button type="submit" name="changePassword" class=" rounded text-light bg-lessDark py-4 w-full"
+                        style="background-color: black;">Change
                         Password</button>
                 </form>
             </div>

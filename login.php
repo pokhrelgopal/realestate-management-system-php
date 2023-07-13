@@ -62,7 +62,7 @@ if (isset($_POST['submit'])) {
                         </div>
                     </div>
                     <div>
-                        <button type="submit" name="submit" class="w-full py-4 text-dark bg-lessDark rounded">Log
+                        <button type="submit" name="submit" class="w-full py-4 text-dark rounded" style="background-color: black;">Log
                             in</button>
                     </div>
                     <p class="text-center"> Don't have an account? <a href="signup.php" class="underline">Sign

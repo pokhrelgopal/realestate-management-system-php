@@ -49,8 +49,8 @@
                             class="bg-white p-4 rounded bg-ivory outline-0" value="<?php echo $phone_number ?>"
                             required>
                     </div>
-                    <button type="submit" name="update"
-                        class=" rounded text-light bg-lessDark py-4 w-full">Update</button>
+                    <button type="submit" name="update" class="rounded text-light py-4 w-full"
+                        style="background-color: black;">Update</button>
                 </form>
                 <!-- Update profile php starts -->
                 <?php

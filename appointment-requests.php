@@ -67,7 +67,7 @@
                                             </div>
                                         </div>
                                         <form method='post' action=''>
-                                        <button type='submit' name='deleteAppointment' class='btn bg-lightRed text-light p-2 rounded'>Remove</button>
+                                        <button style='background-color:red;' type='submit' name='deleteAppointment' class='btn bg-lightRed text-light p-2 rounded'>Remove</button>
                                         <input type='hidden' name='message_id' value='$message_id'>
                                         </form>
                                     </div>

@@ -105,7 +105,8 @@ if (isset($_POST['submit'])) {
                         </div>
                     </div>
                     <div>
-                        <button type="submit" name="submit" class="w-full py-4 text-dark bg-lessDark rounded">
+                        <button type="submit" name="submit" class="w-full py-4 text-dark rounded"
+                            style="background-color: black;">
                             Create account
                         </button>
                     </div>

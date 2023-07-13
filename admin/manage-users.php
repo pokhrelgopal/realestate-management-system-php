@@ -70,7 +70,8 @@
                                         <td class="border px-4 py-2 text-center">
                                             <form action="" method="post">
                                                 <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                                                <button type="submit" name="deleteUser" class="bg-lightRed text-light p-2 rounded"> Delete User</button>
+                                                <button style="background-color: red;" type="submit" name="deleteUser" class="text-light p-2 rounded"> Delete
+                                                    User</button>
                                             </form>
                                         </td>
                                     </tr>

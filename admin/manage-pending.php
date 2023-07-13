@@ -68,12 +68,12 @@
                                             value="<?php echo $property['property_id']; ?>">
                                         <a
                                             href="/realestate-change/admin/admin-view.php?id=<?php echo $property['property_id'] ?>"><button
-                                                type="button"
-                                                class="bg-dark text-lessDark p-2 rounded">View</button></a>
-                                        <button type="submit" name="approveProperty"
-                                            class="text-lessDark p-2 rounded bg-lightGreen">Approve</button>
-                                        <button type="submit" name="deleteRequestProperty"
-                                            class="bg-lightRed text-light p-2 rounded"> Delete</button>
+                                                type="button" style="background-color: teal;"
+                                                class="text-lessDark p-2 rounded">View</button></a>
+                                        <button type="submit" name="approveProperty" class="text-lessDark p-2 rounded"
+                                            style="background-color: greenyellow;">Approve</button>
+                                        <button style="background-color: red;" type="submit"
+                                            name="deleteRequestProperty" class="text-light p-2 rounded"> Delete</button>
                                     </form>
                                 </td>
                             </tr>
