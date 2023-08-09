@@ -3,6 +3,11 @@
 
 <head>
     <?php include 'common/head.php'; ?>
+    <style>
+        .text-lightRed {
+            color: #ff0000;
+        }
+    </style>
 </head>
 
 
@@ -22,83 +27,79 @@
                     <div class="form-control flex flex-col">
                         <label for="old password">Old Password</label>
                         <span id="oldPasswordError" class="text-lightRed"></span>
-                        <input type="password" id="oldPassword" name="oldPassword"
-                            class="bg-white p-4 rounded bg-ivory outline-0" value="" required>
+                        <input type="password" id="oldPassword" name="oldPassword" class="bg-white p-4 rounded bg-ivory outline-0" value="" required>
                     </div>
                     <div class="form-control flex flex-col">
                         <label for="new password">New Password</label>
                         <span id="newPasswordError" class="text-lightRed"></span>
-                        <input type="password" id="newPassword" name="newPassword"
-                            class="bg-white p-4 rounded bg-ivory outline-0" value="" required>
+                        <input type="password" id="newPassword" name="newPassword" class="bg-white p-4 rounded bg-ivory outline-0" value="" required>
                     </div>
                     <div class="form-control flex flex-col">
                         <label for="confirm new password">Confirm New Password</label>
                         <span id="confirmNewPasswordError" class="text-lightRed"></span>
-                        <input type="password" id="confirmNewPassword" name="confirmNewPassword"
-                            class="bg-white p-4 rounded bg-ivory outline-0" value="" required>
+                        <input type="password" id="confirmNewPassword" name="confirmNewPassword" class="bg-white p-4 rounded bg-ivory outline-0" value="" required>
                     </div>
 
-                    <button type="submit" name="changePassword" class=" rounded text-light bg-lessDark py-4 w-full"
-                        style="background-color: black;">Change
+                    <button type="submit" name="changePassword" class=" rounded text-light bg-lessDark py-4 w-full" style="background-color: black;">Change
                         Password</button>
                 </form>
             </div>
         </div>
 </body>
 <script>
-const myForm = document.getElementById('myForm');
-myForm.addEventListener('submit', (e) => {
-    const oldPassword = document.getElementById('oldPassword');
-    const newPassword = document.getElementById('newPassword');
-    const confirmNewPassword = document.getElementById('confirmNewPassword');
-    const oldPasswordError = document.getElementById('oldPasswordError');
-    const newPasswordError = document.getElementById('newPasswordError');
-    const confirmNewPasswordError = document.getElementById('confirmNewPasswordError');
+    const myForm = document.getElementById('myForm');
+    myForm.addEventListener('submit', (e) => {
+        const oldPassword = document.getElementById('oldPassword');
+        const newPassword = document.getElementById('newPassword');
+        const confirmNewPassword = document.getElementById('confirmNewPassword');
+        const oldPasswordError = document.getElementById('oldPasswordError');
+        const newPasswordError = document.getElementById('newPasswordError');
+        const confirmNewPasswordError = document.getElementById('confirmNewPasswordError');
 
-    // old password validation
-    if (oldPassword.value == '') {
-        event.preventDefault();
-        oldPasswordError.innerHTML = 'Old Password is required';
-        oldPassword.focus();
-    } else {
-        oldPasswordError.innerHTML = '';
-    }
+        // old password validation
+        if (oldPassword.value == '') {
+            event.preventDefault();
+            oldPasswordError.innerHTML = 'Old Password is required';
+            oldPassword.focus();
+        } else {
+            oldPasswordError.innerHTML = '';
+        }
 
-    // new password validation
-    if (newPassword.value == '') {
-        event.preventDefault();
-        newPasswordError.innerHTML = 'New Password is required';
-        newPassword.focus();
-    } else if (newPassword.value.length < 8) {
-        event.preventDefault();
-        newPasswordError.innerHTML = 'New Password must be at least 6 characters';
-        newPassword.focus();
-    } else if (newPassword.value.search(/[a-z]/i) < 0) {
-        event.preventDefault();
-        newPasswordError.innerHTML = 'New Password must contain at least one letter.';
-        newPassword.focus();
-    } else if (newPassword.value.search(/[0-9]/) < 0) {
-        event.preventDefault();
-        newPasswordError.innerHTML = 'New Password must contain at least one digit.';
-        newPassword.focus();
-    } else {
-        newPasswordError.innerHTML = '';
-    }
+        // new password validation
+        if (newPassword.value == '') {
+            event.preventDefault();
+            newPasswordError.innerHTML = 'New Password is required';
+            newPassword.focus();
+        } else if (newPassword.value.length < 8) {
+            event.preventDefault();
+            newPasswordError.innerHTML = 'New Password must be at least 6 characters';
+            newPassword.focus();
+        } else if (newPassword.value.search(/[a-z]/i) < 0) {
+            event.preventDefault();
+            newPasswordError.innerHTML = 'New Password must contain at least one letter.';
+            newPassword.focus();
+        } else if (newPassword.value.search(/[0-9]/) < 0) {
+            event.preventDefault();
+            newPasswordError.innerHTML = 'New Password must contain at least one digit.';
+            newPassword.focus();
+        } else {
+            newPasswordError.innerHTML = '';
+        }
 
-    // confirm new password validation
-    if (confirmNewPassword.value == '') {
-        event.preventDefault();
-        confirmNewPasswordError.innerHTML = 'Confirm New Password is required';
-        confirmNewPassword.focus();
-    } else if (confirmNewPassword.value != newPassword.value) {
-        event.preventDefault();
-        confirmNewPasswordError.innerHTML = 'Confirm New Password must be same as New Password';
-        confirmNewPassword.focus();
-    } else {
-        confirmNewPasswordError.innerHTML = '';
-        console.log('form submitted');
-    }
-});
+        // confirm new password validation
+        if (confirmNewPassword.value == '') {
+            event.preventDefault();
+            confirmNewPasswordError.innerHTML = 'Confirm New Password is required';
+            confirmNewPassword.focus();
+        } else if (confirmNewPassword.value != newPassword.value) {
+            event.preventDefault();
+            confirmNewPasswordError.innerHTML = 'Confirm New Password must be same as New Password';
+            confirmNewPassword.focus();
+        } else {
+            confirmNewPasswordError.innerHTML = '';
+            console.log('form submitted');
+        }
+    });
 </script>
 
 </html>

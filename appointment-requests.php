@@ -47,7 +47,7 @@
                                     <div class='p-3 rounded flex items-center justify-between'>
                                         <div class='flex items-center space-x-3'>
                                             <img src='/realestate/assets/default.png' class='h-8' alt=''>
-                                            <p class='ml-3'><span>$sender_name </span>has sent you an appointment request.</p> 
+                                            <p class='ml-3'><span>$sender_name </span>has sent you an enquiry request.</p> 
                                         </div>
                                         <div class='dropdown'>
                                             <i class='fa-solid fa-chevron-down'></i>
@@ -77,7 +77,7 @@
                     } else {
                         echo "
                             <div class='rounded bg-white p-3'>
-                            <p class='text-2xl text-left'>No Messages to show</p>
+                            <p class='text-2xl text-left'>No Enquiries to show</p>
                             </div>
                             ";
                     }
@@ -86,17 +86,13 @@
             </div>
         </div>
         <script>
-            // Get all message container elements
-            const messageContainers = document.querySelectorAll('[id^="message-container-"]');
-
-            // Add click event listener to each message container
-            messageContainers.forEach(container => {
-                const messageContent = container.querySelector('#message-content');
-
-                container.addEventListener('click', () => {
-                    messageContent.classList.remove('hidden');
-                });
+        const messageContainers = document.querySelectorAll('[id^="message-container-"]');
+        messageContainers.forEach(container => {
+            const messageContent = container.querySelector('#message-content');
+            container.addEventListener('click', () => {
+                messageContent.classList.remove('hidden');
             });
+        });
         </script>
 </body>
 

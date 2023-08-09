@@ -97,7 +97,6 @@
 if (isset($_POST['deleteUser'])) {
     $user_id = $_POST['user_id'];
     $deleteQuery = "DELETE FROM users WHERE id=$user_id";
-    echo $deleteQuery;
     $deleteResult = mysqli_query($conn, $deleteQuery);
     if ($deleteResult) {
         echo "

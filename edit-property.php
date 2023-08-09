@@ -4,6 +4,15 @@
 <head>
     <?php include 'common/connection.php'; ?>
     <?php include 'common/head.php'; ?>
+    <style>
+        .text-lightRed {
+            color: #ff0000;
+        }
+
+        .text-yellow {
+            color: #ffcc00;
+        }
+    </style>
 </head>
 
 <body class="container mx-auto bg-slate-100 text-lg">
@@ -71,10 +80,12 @@
                             </div>
                             <div class="form-control flex flex-col space-y-1">
                                 <label for="">City Name</label>
+                                <span class="text-lightRed" id="cityError"></span>
                                 <input type="text" name="city" id="city" value="<?php echo $property_city ?>" class="bg-ivory outline-0 p-3 rounded" required>
                             </div>
                             <div class="form-control flex flex-col space-y-1">
                                 <label for="">Title of Listing</label>
+                                <span class="text-lightRed" id="titleError"></span>
                                 <input type="text" name="title" id="title" value="<?php echo $property_title ?>" class="bg-ivory outline-0 p-3 rounded" required>
                             </div>
                             <div class="form-control flex flex-col space-y-1">
@@ -86,12 +97,13 @@
                             </div>
                             <div class="form-control flex flex-col space-y-1">
                                 <label for="">Description of Listed Property</label>
+                                <span class="text-lightRed" id="aboutError"></span>
                                 <textarea name="about" id="about" cols="30" rows="10" class="bg-ivory outline-0 p-3 rounded"><?php echo $property_about ?></textarea>
 
                             </div>
                             <div class="form-control flex flex-col space-y-1">
                                 <label for="">Image of Listed Property &nbsp;
-                                    <span class="text-lightRed">(Only JPG, JPEG, PNG and GIF are
+                                    <span class="text-yellow">(Only JPG, JPEG, PNG and GIF are
                                         allowed)*</span>
 
                                 </label>
@@ -99,6 +111,7 @@
                             </div>
                             <div class="form-control flex flex-col space-y-1">
                                 <label for="">Price of Listed Property</label>
+                                <span class="text-lightRed" id="priceError"></span>
                                 <input type="number" name="price" id="price" class="bg-ivory outline-0 p-3 rounded" value="<?php echo $property_price ?>">
                             </div>
                             <div class="form-control flex flex-col space-y-1">
@@ -116,11 +129,16 @@
                 const city = document.getElementById('city').value;
                 const title = document.getElementById('title').value;
                 const iframe = document.getElementById('iframe').value;
-                const submit = document.getElementById('submit');
+                const about = document.getElementById('about').value;
+                const price = document.getElementById('price').value;
+
                 const cityError = document.getElementById('cityError');
                 const titleError = document.getElementById('titleError');
                 const iframeError = document.getElementById('iframeError');
+                const aboutError = document.getElementById('aboutError');
+                const priceError = document.getElementById('priceError');
 
+                const submit = document.getElementById('submit');
                 // city validation
                 if (city === '') {
                     e.preventDefault();
@@ -153,6 +171,27 @@
                     }
                 }
 
+                // about validation
+                if (about === '') {
+                    e.preventDefault();
+                    aboutError.innerHTML = 'About is required';
+                } else if (!/[a-zA-Z]/.test(about)) {
+                    e.preventDefault();
+                    aboutError.innerHTML = 'About must have text and not only numbers';
+                } else {
+                    aboutError.innerHTML = '';
+                }
+
+                // price validation
+                if (price === '') {
+                    e.preventDefault();
+                    priceError.innerHTML = 'Price is required';
+                } else if (price < 0) {
+                    e.preventDefault();
+                    priceError.innerHTML = 'Price must be valid';
+                } else {
+                    priceError.innerHTML = '';
+                }
             })
         </script>
 </body>

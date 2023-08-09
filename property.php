@@ -9,6 +9,10 @@
             width: 100%;
             height: 500px;
         }
+
+        .text-lightRed {
+            color: #ff0000;
+        }
     </style>
 </head>
 
@@ -154,7 +158,7 @@
                                     </div>
                                     </div>
 
-                                                <form action='' method='POST' class='pt-5 space-y-5'>
+                                                <form id='appForm' action='' method='POST' class='pt-5 space-y-5'>
                                             <div>
                                                 <label for='name'>Name</label>
                                                 <input type='text' name='message_name' id='name' value='$name' class='w-full bg-cleanLight text-lightGray outline-0 rounded p-3' required disabled>
@@ -165,16 +169,18 @@
                                             </div>
                                             <div>
                                                 <label for='name'>Phone</label>
-                                                <input type='text' name='message_phone' value='$phone' id='name' class='w-full bg-ivory outline-0 rounded p-3'>
-                                            </div>
-                                            <div>
-                                                <label for='name'>Message</label>
+                                                <input type='text' name='message_phone' disabled value='$phone' id='editPhone' class='w-full bg-cleanLight text-lightGray outline-0 rounded p-3'>
+                                                </div>
+                                                <div>
+                                                <label for='name'>Enquiry Message</label><br>
+                                                <span id='messageError' class='text-lightRed'></span>
                                                 <textarea name='message_text' id='message' cols='30' rows='10' class='w-full bg-ivory outline-0 rounded p-3' required></textarea>
                                             </div>
                                             <div>
-                                                <button 
+                                                <button
+                                                id='submit_message' 
                                                 style='background-color: black;' type='submit' name='submit_message' class='bg-lessDark text-light py-3 rounded w-full'>
-                                                Request Appointment
+                                                Submit Enquiry
                                                 <i class='ml-3 fa-solid fa-paper-plane'></i>
                                                 </button>
                                             </div>
@@ -182,12 +188,32 @@
                                         ";
                     }
                     ?>
+                    <script>
+                        const appForm = document.getElementById('appForm');
+                        const messageError = document.getElementById('messageError');
+                        const message = document.getElementById('message')
 
+                        appForm.addEventListener('submit', (e) => {
+                            if (message.value == '') {
+                                e.preventDefault();
+                                messageError.textContent = 'Message cannot be empty.';
+                            } else if (!/[a-zA-Z]/.test(message.value)) {
+                                e.preventDefault();
+                                messageError.textContent = 'Message can not be only numbers.';
+                            } else if (message.value.length < 10) {
+                                e.preventDefault();
+                                messageError.textContent = 'Message must be more than 10 characters.';
+                            } else {
+                                messageError.textContent = '';
+                            }
+                        });
+                    </script>
                 </div>
             </div>
         </div>
     </div>
     </div>
+
 </body>
 
 </html>
@@ -210,14 +236,14 @@ if (isset($_POST['submit_message'])) {
     }
     $message_name = $name;
     $message_email = $email;
-    $message_phone = $_POST['message_phone'];
+    $message_phone = $phone;
     $message_text = $_POST['message_text'];
 
     $check = "SELECT * FROM messages WHERE sender_id = '$id' AND property_id = '$property_id'";
     $check_result = mysqli_query($conn, $check);
     if (mysqli_num_rows($check_result) > 0) {
         echo "<p id='error_login' class='absolute bottom-0 right-0 m-6 bg-lightRed text-light px-6 py-3'>
-        You have already sent appointment request to this owner.
+        You have already sent enquiry to this owner.
         </p>
         <script>
         setTimeout(() => {
@@ -232,7 +258,7 @@ if (isset($_POST['submit_message'])) {
         if ($result) {
             echo "
             <p id='error_login' class='absolute bottom-0 right-0 m-6 bg-lightGreen px-6 py-3'>
-        Your message has been delivered.
+        Your enquiry has been sent.
         </p>
         <script>
         setTimeout(() => {
@@ -242,7 +268,7 @@ if (isset($_POST['submit_message'])) {
             ";
         } else {
             echo "<p id='error_login' class='absolute top-0 left-0 m-6 bg-red-500 text-white px-6 py-3'>
-        Message not delivered.
+        Enquiry could not be sent.
         </p>
         <script>
         setTimeout(() => {

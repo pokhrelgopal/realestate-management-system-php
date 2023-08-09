@@ -33,24 +33,19 @@
                     <div class="form-control flex flex-col">
                         <label for="fullName">Fullname</label>
                         <span id="nameError" class="text-lightRed"></span>
-                        <input type="text" id="editFullname" name="edit_fullname"
-                            class="bg-white p-4 rounded bg-ivory outline-0" value="<?php echo $fullname ?>" required>
+                        <input type="text" id="editFullname" name="edit_fullname" class="bg-white p-4 rounded bg-ivory outline-0" value="<?php echo $fullname ?>" required>
                     </div>
                     <div class="form-control flex flex-col">
                         <label for="email">Email Address</label>
                         <span id="emailError" class="text-lightRed"></span>
-                        <input type="email" id="editEmail" name="edit_email"
-                            class="bg-white p-4 rounded bg-ivory outline-0" value="<?php echo $email ?>" required>
+                        <input type="email" id="editEmail" name="edit_email" class="bg-white p-4 rounded bg-ivory outline-0" value="<?php echo $email ?>" required>
                     </div>
                     <div class="form-control flex flex-col">
                         <label for="phoneNumber">Phone Number</label>
                         <span id="phoneError" class="text-lightRed"></span>
-                        <input type="text" id="editPhone" name="edit_phone"
-                            class="bg-white p-4 rounded bg-ivory outline-0" value="<?php echo $phone_number ?>"
-                            required>
+                        <input type="text" id="editPhone" name="edit_phone" class="bg-white p-4 rounded bg-ivory outline-0" value="<?php echo $phone_number ?>" required>
                     </div>
-                    <button type="submit" name="update" class="rounded text-light py-4 w-full"
-                        style="background-color: black;">Update</button>
+                    <button type="submit" name="update" class="rounded text-light py-4 w-full" style="background-color: black;">Update</button>
                 </form>
                 <!-- Update profile php starts -->
                 <?php
@@ -96,9 +91,6 @@
                     }
                 }
                 ?>
-
-
-
             </div>
         </div>
 </body>
@@ -106,62 +98,49 @@
 </html>
 
 <script>
-// // Get all message container elements
-// const messageContainers = document.querySelectorAll('[id^="message-container-"]');
+    // Edit profile validation
 
-// // Add click event listener to each message container
-// messageContainers.forEach(container => {
-//     const messageContent = container.querySelector('#message-content');
+    document.getElementById('myForm').addEventListener('submit', (e) => {
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const phoneError = document.getElementById('phoneError');
+        const editPhone = document.getElementById('editPhone').value;
 
-//     container.addEventListener('click', () => {
-//         messageContent.classList.remove('hidden');
-//     });
-// });
+        const editFullname = document.getElementById('editFullname').value;
+        const editEmail = document.getElementById('editEmail').value;
 
+        // fullname validation
+        if (editFullname == '') {
+            event.preventDefault();
+            nameError.textContent = 'Name cannot be empty.';
+        } else if (editFullname.length < 3) {
+            event.preventDefault();
+            nameError.textContent = "Fullname must be more than 5 characters.";
+        } else if (/[^a-zA-Z0-9 ]/.test(editFullname)) {
+            event.preventDefault();
+            nameError.textContent = "Fullname should not contain special characters.";
+        } else if (/\d/.test(editFullname)) {
+            event.preventDefault();
+            nameError.textContent = "Fullname should not contain numbers.";
+        } else {
+            nameError.textContent = "";
+        }
 
-// Edit profile validation
-
-document.getElementById('myForm').addEventListener('submit', (e) => {
-    const nameError = document.getElementById('nameError');
-    const emailError = document.getElementById('emailError');
-    const phoneError = document.getElementById('phoneError');
-
-    const editFullname = document.getElementById('editFullname').value;
-    const editEmail = document.getElementById('editEmail').value;
-    const editPhone = document.getElementById('editPhone').value;
-
-    // fullname validation
-    if (editFullname == '') {
-        event.preventDefault();
-        nameError.textContent = 'Name cannot be empty.';
-    } else if (editFullname.length < 3) {
-        event.preventDefault();
-        nameError.textContent = "Fullname must be more than 5 characters.";
-    } else if (/[^a-zA-Z0-9 ]/.test(editFullname)) {
-        event.preventDefault();
-        nameError.textContent = "Fullname should not contain special characters.";
-    } else if (/\d/.test(editFullname)) {
-        event.preventDefault();
-        nameError.textContent = "Fullname should not contain numbers.";
-    } else {
-        nameError.textContent = "";
-    }
-
-    // phone number validation
-    if (editPhone == '') {
-        event.preventDefault();
-        phoneError.textContent = 'Phone number cannot be empty.';
-    } else if (!/^9/.test(editPhone)) {
-        event.preventDefault();
-        phoneError.textContent = "Phone number must start with 9";
-    } else if (!(editPhone.length == 10)) {
-        event.preventDefault();
-        phoneError.textContent = 'Phone number must exactly 10 digits.';
-    } else if (!/\d/.test(editPhone)) {
-        event.preventDefault();
-        phoneError.textContent = "Phone number must contain numbers only.";
-    } else {
-        phoneError.textContent = '';
-    }
-});
+        // phone number validation
+        if (editPhone == '') {
+            event.preventDefault();
+            phoneError.textContent = 'Phone number cannot be empty.';
+        } else if (!/^9/.test(editPhone)) {
+            event.preventDefault();
+            phoneError.textContent = "Phone number must start with 9";
+        } else if (!(editPhone.length == 10)) {
+            event.preventDefault();
+            phoneError.textContent = 'Phone number must exactly 10 digits.';
+        } else if (!/\d/.test(editPhone)) {
+            event.preventDefault();
+            phoneError.textContent = "Phone number must contain numbers only.";
+        } else {
+            phoneError.textContent = '';
+        }
+    });
 </script>
