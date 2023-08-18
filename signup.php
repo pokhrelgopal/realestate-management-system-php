@@ -5,7 +5,7 @@ if (isset($_POST['submit'])) {
     $fullname = $_POST['fullname'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT); // Hash the password
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     $phone = $_POST['phone'];
     $checkSql = "SELECT * FROM users WHERE email='$email'";
     $checkResult = mysqli_query($conn, $checkSql);

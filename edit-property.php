@@ -171,16 +171,17 @@
                     }
                 }
 
-                // about validation
-                if (about === '') {
-                    e.preventDefault();
-                    aboutError.innerHTML = 'About is required';
-                } else if (!/[a-zA-Z]/.test(about)) {
-                    e.preventDefault();
-                    aboutError.innerHTML = 'About must have text and not only numbers';
-                } else {
-                    aboutError.innerHTML = '';
-                }
+                // // about validation
+                // if (about === '') {
+                //     e.preventDefault();
+                //     aboutError.innerHTML = 'About is required';
+                // } else if (!/[a-zA-Z]/.test(about)) {
+                //     e.preventDefault();
+                //     aboutError.innerHTML = 'About must have text and not only numbers';
+                // } else {
+                //     aboutError.innerHTML = '';
+                // }
+
 
                 // price validation
                 if (price === '') {
@@ -193,6 +194,11 @@
                     priceError.innerHTML = '';
                 }
             })
+        </script>
+        <script type="text/javascript">
+            CKEDITOR.replace('about', {
+                height: "200px"
+            });
         </script>
 </body>
 
@@ -257,7 +263,7 @@ if (isset($_POST['update'])) {
     }
 
     // sql command
-    $sql = "UPDATE properties SET property_type = '$property_type', province = '$property_province', location = '$property_city', title = '$property_title', about = '$property_about', listing_type = '$property_listing_type', price = '$property_price', iframe_src = '$property_iframe'";
+    $sql = "UPDATE properties SET property_type = '$property_type', province = '$property_province', location = '$property_city', title = '$property_title', about = '$property_about', listing_type = '$property_listing_type', price = '$property_price', iframe_src = '$property_iframe',status='off'";
 
     // Add image update to the SQL command if a new image is uploaded
     if ($_FILES['imageData']['size'] > 0) {

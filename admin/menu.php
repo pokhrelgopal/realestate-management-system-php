@@ -6,7 +6,7 @@
         <div class="border-b px-3 py-3 cursor-pointer" id="manageUsers">Manage Users</div>
     </a>
     <a href="/realestate-change/admin/manage-messages.php">
-        <div class="border-b px-3 py-3 cursor-pointer" id="manageMessage">Manage Messages</div>
+        <div class="border-b px-3 py-3 cursor-pointer" id="manageMessage">Manage Enquiries</div>
     </a>
     <a href="/realestate-change/admin/manage-pending.php">
         <div class="border-b px-3 py-3 cursor-pointer" id="pendingProperties">Pending Properties

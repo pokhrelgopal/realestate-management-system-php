@@ -5,17 +5,17 @@
 <head>
     <?php include 'common/head.php'; ?>
     <style>
-    .bg-red-500 {
-        background-color: #f56565;
-    }
+        .bg-red-500 {
+            background-color: #f56565;
+        }
 
-    .text-light {
-        color: #fff;
-    }
+        .text-light {
+            color: #fff;
+        }
 
-    .text-red-500 {
-        color: #f56565;
-    }
+        .text-red-500 {
+            color: #f56565;
+        }
     </style>
 </head>
 
@@ -29,8 +29,7 @@
                 <?php include 'menu.php'; ?>
             </div>
             <div class="col-span-3 w-2/3">
-                <form action="add-property.php" method="POST" class="flex flex-col space-y-3"
-                    enctype="multipart/form-data">
+                <form action="add-property.php" method="POST" class="flex flex-col space-y-3" enctype="multipart/form-data">
                     <div class="space-y-4">
                         <div class="form-control flex flex-col space-y-1">
                             <label for="propertyType">Type of Property</label>
@@ -55,14 +54,12 @@
                         <div class="form-control flex flex-col space-y-1">
                             <label for="">City Name</label>
                             <span id="cityError" class="text-red-500"></span>
-                            <input type="text" name="city" id="city" placeholder="Eg. Kathmandu"
-                                class="bg-ivory p-3 rounded" required>
+                            <input type="text" name="city" id="city" placeholder="Eg. Kathmandu" class="bg-ivory p-3 rounded" required>
                         </div>
                         <div class="form-control flex flex-col space-y-1">
                             <label for="">Title of Listing</label>
                             <span id="titleError" class="text-red-500"></span>
-                            <input type="text" name="title" id="title" placeholder="Eg. Two bedroom house"
-                                class="bg-ivory p-3 rounded" required>
+                            <input type="text" name="title" id="title" placeholder="Eg. Two bedroom house" class="bg-ivory p-3 rounded" required>
                         </div>
                         <div class="form-control flex flex-col space-y-1">
                             <label for="">Listing Type</label>
@@ -74,8 +71,7 @@
                         <div class="form-control flex flex-col space-y-1">
                             <label for="">Description of Listed Property</label>
                             <span id="aboutError" class="text-red-500"></span>
-                            <textarea name="about" id="about" cols="30" rows="10" class="bg-ivory p-3 rounded"
-                                placeholder="About property"></textarea>
+                            <textarea name="about" id="about" cols="30" rows="10" class="bg-ivory p-3 rounded" placeholder="About property"></textarea>
 
                         </div>
                         <div class="form-control flex flex-col space-y-1">
@@ -86,17 +82,14 @@
                         <div class="form-control flex flex-col space-y-1">
                             <label for="">Price of Listed Property</label>
                             <span id="priceError" class="text-red-500"></span>
-                            <input type="number" name="price" id="price" class="bg-ivory p-3 rounded"
-                                placeholder="Eg. 200000000">
+                            <input type="number" name="price" id="price" class="bg-ivory p-3 rounded" placeholder="Eg. 200000000">
                         </div>
                         <div class="form-control flex flex-col space-y-1">
                             <label for="">Iframe of location (optional)</label>
                             <span id="iframeError" class="text-red-500"></span>
-                            <textarea name="iframe" id="iframe" cols="30" rows="5"
-                                class="bg-ivory p-3 rounded"></textarea>
+                            <textarea name="iframe" id="iframe" cols="30" rows="5" class="bg-ivory p-3 rounded"></textarea>
                         </div>
-                        <button style="background-color: black;" type="submit" id="submit" name="submit"
-                            class="w-full rounded text-light py-4">List
+                        <button style="background-color: black;" type="submit" id="submit" name="submit" class="w-full rounded text-light py-4">List
                             Property</button>
                     </div>
                 </form>
@@ -106,71 +99,76 @@
 
         <!-- Javascript -->
         <script>
-        submit.addEventListener('click', (e) => {
-            const city = document.getElementById('city').value;
-            const title = document.getElementById('title').value;
-            const iframe = document.getElementById('iframe').value;
-            const about = document.getElementById('about').value;
-            const price = document.getElementById('price').value;
-            const cityError = document.getElementById('cityError');
-            const titleError = document.getElementById('titleError');
-            const iframeError = document.getElementById('iframeError');
-            const aboutError = document.getElementById('aboutError');
-            const priceError = document.getElementById('priceError');
-            const submit = document.getElementById('submit');
+            submit.addEventListener('click', (e) => {
+                const city = document.getElementById('city').value;
+                const title = document.getElementById('title').value;
+                const iframe = document.getElementById('iframe').value;
+                const about = document.getElementById('about').value;
+                const price = document.getElementById('price').value;
+                const cityError = document.getElementById('cityError');
+                const titleError = document.getElementById('titleError');
+                const iframeError = document.getElementById('iframeError');
+                const aboutError = document.getElementById('aboutError');
+                const priceError = document.getElementById('priceError');
+                const submit = document.getElementById('submit');
 
-            // city validation
-            if (city === '') {
-                e.preventDefault();
-                cityError.innerHTML = 'City name is required *';
-            } else if (/\d/.test(city)) {
-                e.preventDefault();
-                cityError.innerHTML = 'City name must not contain numbers';
-            } else {
-                cityError.innerHTML = '';
-            }
-
-            // title validation
-            if (title === '') {
-                e.preventDefault();
-                titleError.innerHTML = 'Title is required *';
-            } else if (!/[a-zA-Z]/.test(title)) {
-                e.preventDefault();
-                titleError.innerHTML = 'Title must have text and not only numbers';
-            } else {
-                titleError.innerHTML = '';
-            }
-
-            // iframe validation
-            if (iframe !== '') {
-                if (!/^<iframe[\s\S]*<\/iframe>$/.test(iframe)) {
+                // city validation
+                if (city === '') {
                     e.preventDefault();
-                    iframeError.innerHTML = 'Iframe must be valid or empty.';
+                    cityError.innerHTML = 'City name is required *';
+                } else if (/\d/.test(city)) {
+                    e.preventDefault();
+                    cityError.innerHTML = 'City name must not contain numbers';
                 } else {
-                    iframeError.innerHTML = '';
+                    cityError.innerHTML = '';
                 }
-            }
 
-            // about validation
-            if (about === '') {
-                e.preventDefault();
-                aboutError.innerHTML = 'Description of property is required *';
-            } else {
-                aboutError.innerHTML = '';
-            }
+                // title validation
+                if (title === '') {
+                    e.preventDefault();
+                    titleError.innerHTML = 'Title is required *';
+                } else if (!/[a-zA-Z]/.test(title)) {
+                    e.preventDefault();
+                    titleError.innerHTML = 'Title must have text and not only numbers';
+                } else {
+                    titleError.innerHTML = '';
+                }
 
-            // price validation
-            if (price === '') {
-                e.preventDefault();
-                priceError.innerHTML = 'Price of property is required *';
-            } else if (price < 0) {
-                e.preventDefault();
-                priceError.innerHTML = 'Price must be valid';
-            } else {
-                priceError.innerHTML = '';
-            }
+                // iframe validation
+                if (iframe !== '') {
+                    if (!/^<iframe[\s\S]*<\/iframe>$/.test(iframe)) {
+                        e.preventDefault();
+                        iframeError.innerHTML = 'Iframe must be valid or empty.';
+                    } else {
+                        iframeError.innerHTML = '';
+                    }
+                }
 
-        })
+                // // about validation
+                // if (about === '') {
+                //     e.preventDefault();
+                //     aboutError.innerHTML = 'Description of property is required *';
+                // } else {
+                //     aboutError.innerHTML = '';
+                // }
+
+                // price validation
+                if (price === '') {
+                    e.preventDefault();
+                    priceError.innerHTML = 'Price of property is required *';
+                } else if (price < 0) {
+                    e.preventDefault();
+                    priceError.innerHTML = 'Price must be valid';
+                } else {
+                    priceError.innerHTML = '';
+                }
+
+            })
+        </script>
+        <script type="text/javascript">
+            CKEDITOR.replace('about', {
+                height: "200px"
+            });
         </script>
 </body>
 
