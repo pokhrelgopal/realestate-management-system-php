@@ -13,7 +13,7 @@ include 'common/connection.php';
         <form action="" method="post" class="bg-light shadow px-4 py-4 rounded w-1/4">
             <h1 class="text-center text-2xl text-lessDark pb-4">Admin Login</h1>
             <div class="flex flex-col space-y-1">
-                <label for="" class="text-lessDark">Username</label>
+                <label for="" class="text-lessDark">Email</label>
                 <input type="text" name="username" id="" class="p-2 rounded border bg-ivory text-lessDark outline-0">
             </div>
             <div class="flex flex-col space-y-1">
@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
     session_start();
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $query = "SELECT * FROM admin WHERE username='$username' AND password='$password'";
+    $query = "SELECT * FROM admin WHERE email='$username' AND password='$password'";
     $result = mysqli_query($conn, $query);
     if (mysqli_num_rows($result) > 0) {
         header('location:dashboard.php');

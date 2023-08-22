@@ -67,7 +67,7 @@
                                             </div>
                                         </div>
                                         <form method='post' action=''>
-                                        <button style='background-color:red;' type='submit' name='deleteAppointment' class='btn bg-lightRed text-light p-2 rounded'>Remove</button>
+                                        <button style='background-color:red;' type='submit' name='deleteAppointment' class='btn bg-lightRed text-light p-2 rounded'>Not Interested</button>
                                         <input type='hidden' name='message_id' value='$message_id'>
                                         </form>
                                     </div>
@@ -86,13 +86,13 @@
             </div>
         </div>
         <script>
-        const messageContainers = document.querySelectorAll('[id^="message-container-"]');
-        messageContainers.forEach(container => {
-            const messageContent = container.querySelector('#message-content');
-            container.addEventListener('click', () => {
-                messageContent.classList.remove('hidden');
+            const messageContainers = document.querySelectorAll('[id^="message-container-"]');
+            messageContainers.forEach(container => {
+                const messageContent = container.querySelector('#message-content');
+                container.addEventListener('click', () => {
+                    messageContent.classList.remove('hidden');
+                });
             });
-        });
         </script>
 </body>
 

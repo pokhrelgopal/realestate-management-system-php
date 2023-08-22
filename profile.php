@@ -23,73 +23,73 @@
         </div>
     </main>
     <script>
-        // Get all message container elements
-        const messageContainers = document.querySelectorAll('[id^="message-container-"]');
+    // Get all message container elements
+    const messageContainers = document.querySelectorAll('[id^="message-container-"]');
 
-        // Add click event listener to each message container
-        messageContainers.forEach(container => {
-            const messageContent = container.querySelector('#message-content');
+    // Add click event listener to each message container
+    messageContainers.forEach(container => {
+        const messageContent = container.querySelector('#message-content');
 
-            container.addEventListener('click', () => {
-                messageContent.classList.remove('hidden');
-            });
+        container.addEventListener('click', () => {
+            messageContent.classList.remove('hidden');
         });
+    });
 
 
-        // Edit profile validation
+    // Edit profile validation
 
-        document.getElementById('myForm').addEventListener('submit', (e) => {
-            const nameError = document.getElementById('nameError');
-            const emailError = document.getElementById('emailError');
-            const passwordError = document.getElementById('passwordError');
-            const phoneError = document.getElementById('phoneError');
-            const editFullname = document.getElementById('editFullname').value;
-            const editEmail = document.getElementById('editEmail').value;
-            const editPassword = document.getElementById('editPassword').value;
-            const editPhone = document.getElementById('editPhone').value;
+    document.getElementById('myForm').addEventListener('submit', (e) => {
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+        const phoneError = document.getElementById('phoneError');
+        const editFullname = document.getElementById('editFullname').value;
+        const editEmail = document.getElementById('editEmail').value;
+        const editPassword = document.getElementById('editPassword').value;
+        const editPhone = document.getElementById('editPhone').value;
 
-            // fullname validation
-            if (editFullname == '') {
-                event.preventDefault();
-                nameError.textContent = 'Name cannot be empty.';
-            } else if (editFullname.length < 3) {
-                event.preventDefault();
-                nameError.textContent = "Fullname must be more than 5 characters.";
-            } else if (/\d/.test(editFullname)) {
-                event.preventDefault();
-                nameError.textContent = "Fullname should not contain numbers.";
-            } else {
-                nameError.textContent = "";
-            }
+        // fullname validation
+        if (editFullname == '') {
+            event.preventDefault();
+            nameError.textContent = 'Name cannot be empty.';
+        } else if (editFullname.length < 3) {
+            event.preventDefault();
+            nameError.textContent = "Fullname must be more than 5 characters.";
+        } else if (/\d/.test(editFullname)) {
+            event.preventDefault();
+            nameError.textContent = "Fullname should not contain numbers.";
+        } else {
+            nameError.textContent = "";
+        }
 
-            // password validation 
-            if (editPassword == '') {
-                event.preventDefault();
-                passwordError.textContent = 'Password cannot be empty.';
-            } else if (editPassword.length < 8) {
-                event.preventDefault();
-                passwordError.textContent = 'Password must be more than 8 characters.';
-            } else if (!/\d/.test(editPassword) || !/[a-zA-Z]/.test(editPassword)) {
-                event.preventDefault();
-                passwordError.textContent = "Password must contain a combination of letters and numbers";
-            } else {
-                passwordError.textContent = '';
-            }
+        // password validation 
+        if (editPassword == '') {
+            event.preventDefault();
+            passwordError.textContent = 'Password cannot be empty.';
+        } else if (editPassword.length < 8) {
+            event.preventDefault();
+            passwordError.textContent = 'Password must be more than 8 characters.';
+        } else if (!/\d/.test(editPassword) || !/[a-zA-Z]/.test(editPassword)) {
+            event.preventDefault();
+            passwordError.textContent = "Password must contain a combination of letters and numbers";
+        } else {
+            passwordError.textContent = '';
+        }
 
-            // phone number validation
-            if (editPhone == '') {
-                event.preventDefault();
-                phoneError.textContent = 'Phone number cannot be empty.';
-            } else if (!(editPhone.length == 10)) {
-                event.preventDefault();
-                phoneError.textContent = 'Phone number must exactly 10 digits.';
-            } else if (!/\d/.test(editPhone)) {
-                event.preventDefault();
-                phoneError.textContent = "Phone number must contain numbers only.";
-            } else {
-                phoneError.textContent = '';
-            }
-        });
+        // phone number validation
+        if (editPhone == '') {
+            event.preventDefault();
+            phoneError.textContent = 'Phone number cannot be empty.';
+        } else if (!(editPhone.length == 10)) {
+            event.preventDefault();
+            phoneError.textContent = 'Phone number must exactly 10 digits.';
+        } else if (!/\d/.test(editPhone)) {
+            event.preventDefault();
+            phoneError.textContent = "Phone number must contain numbers only.";
+        } else {
+            phoneError.textContent = '';
+        }
+    });
     </script>
 </body>
 

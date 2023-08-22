@@ -36,7 +36,6 @@
                         <thead>
                             <tr>
                                 <th class="border px-2 py-2">Title</th>
-                                <th class="border px-2 py-2">Description</th>
                                 <th class="border px-2 py-2">Price</th>
                                 <th class="border px-2 py-2">Image</th>
                                 <th class="border px-2 py-2">Listed By</th>
@@ -49,7 +48,6 @@
                                 ?>
                             <tr>
                                 <td class="border px-2 py-2 text-center"><?php echo $property['title']; ?></td>
-                                <td class="border px-2 py-2 text-center"><?php echo $property['about']; ?></td>
                                 <td class="border px-2 py-2 text-center"><?php echo $property['price']; ?></td>
                                 <td class="border px-2 py-2"><img
                                         src="/realestate-change/<?php echo $property['img_url']; ?>" alt=""

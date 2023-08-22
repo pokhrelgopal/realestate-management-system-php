@@ -33,14 +33,18 @@
                                             $status = $row['status'];
                                             if ($status == "off") {
                                                 $class = "bg-lightRed text-light p-3 rounded";
+                                                $text = "Not Approved";
                                             } else {
-                                                $class = "hidden";
+                                                $class = "bg-lightGreen p-3 rounded";
+                                                $text = "Approved";
                                             }
                                             echo "
                                             <a href='property.php/?id=$property_id'>
                                                 <div class='relative rounded-xl shadow-xl'>
                                                     <button class='absolute m-6 w-fit'>
-                                                        <span class='$class'>Not Approved</span>
+                                                        <span class='$class'>
+                                                            $text
+                                                        </span>
                                                     </button>
                                                     <div class='image'>
                                                         <img src='$property_image' class='h-56 w-full object-cover rounded-t-xl' alt=''>

@@ -105,7 +105,7 @@ if (isset($_POST['deleteMessage'])) {
         <script>
         setTimeout(() => {
             document.getElementById('error_login').classList.add('hidden');
-            location.href = 'manage-pending.php';
+            location.href = 'manage-messages.php';
         }, 1000);
         </script>
     ";

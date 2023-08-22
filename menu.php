@@ -13,16 +13,19 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
 <div class="bg-ivory rounded text-lessDark text-lg">
     <!-- Showing listings -->
     <a href="/realestate-change/profile.php">
-        <div class="border-b p-4 cursor-pointer <?php if (basename($_SERVER['PHP_SELF']) == 'profile.php' || basename($_SERVER['PHP_SELF']) == 'add-property.php') echo 'bg-cleanLight'; ?>" id="listing-item">My Listings
+        <div class="border-b p-4 cursor-pointer <?php if (basename($_SERVER['PHP_SELF']) == 'profile.php' || basename($_SERVER['PHP_SELF']) == 'add-property.php') echo 'bg-cleanLight'; ?>"
+            id="listing-item">My Listings
         </div>
     </a>
     <!-- Managing Listings -->
     <a href="/realestate-change/manage-listings.php">
-        <div class="border-b p-4 cursor-pointer <?php if (basename($_SERVER['PHP_SELF']) == 'manage-listings.php') echo 'bg-cleanLight'; ?>" id="manage-item">Manage Listings</div>
+        <div class="border-b p-4 cursor-pointer <?php if (basename($_SERVER['PHP_SELF']) == 'manage-listings.php') echo 'bg-cleanLight'; ?>"
+            id="manage-item">Manage Listings</div>
     </a>
     <!-- Count message to display in circle -->
-    <a href="/realestate-change/appointment-requests.php">
-        <div class="border-b p-4 cursor-pointer <?php if (basename($_SERVER['PHP_SELF']) == 'appointment-requests.php') echo 'bg-cleanLight'; ?>" id="message-item">
+    <a href="/realestate-change/enquiries.php">
+        <div class="border-b p-4 cursor-pointer <?php if (basename($_SERVER['PHP_SELF']) == 'enquiries.php') echo 'bg-cleanLight'; ?>"
+            id="message-item">
             Enquiries
             <?php
             $sql = "SELECT * FROM messages WHERE receiver_id = '$id'";
@@ -43,11 +46,13 @@ if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
     </a>
     <!-- Edit profile button -->
     <a href="/realestate-change/update-profile.php">
-        <div class="border-b p-4 cursor-pointer <?php if (basename($_SERVER['PHP_SELF']) == 'update-profile.php') echo 'bg-cleanLight'; ?>" id="edit-item">Update Profile
+        <div class="border-b p-4 cursor-pointer <?php if (basename($_SERVER['PHP_SELF']) == 'update-profile.php') echo 'bg-cleanLight'; ?>"
+            id="edit-item">Update Profile
         </div>
     </a>
     <a href="/realestate-change/change-password.php">
-        <div class="border-b p-4 cursor-pointer <?php if (basename($_SERVER['PHP_SELF']) == 'change-password.php') echo 'bg-cleanLight'; ?>" id="edit-item">Change Password
+        <div class="border-b p-4 cursor-pointer <?php if (basename($_SERVER['PHP_SELF']) == 'change-password.php') echo 'bg-cleanLight'; ?>"
+            id="edit-item">Change Password
         </div>
     </a>
     <!-- logout Button -->

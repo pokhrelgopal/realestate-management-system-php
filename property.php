@@ -5,14 +5,14 @@
     <?php include 'common/connection.php'; ?>
     <?php include 'common/head.php'; ?>
     <style>
-        iframe {
-            width: 100%;
-            height: 500px;
-        }
+    iframe {
+        width: 100%;
+        height: 500px;
+    }
 
-        .text-lightRed {
-            color: #ff0000;
-        }
+    .text-lightRed {
+        color: #ff0000;
+    }
     </style>
 </head>
 
@@ -94,7 +94,8 @@
                 </div>
 
                 <div class="flex justify-center">
-                    <img src='/realestate-change/<?php echo $property_image; ?>' class='rounded w-auto object-contain' alt='Property Image' style="height: 90vh;">
+                    <img src='/realestate-change/<?php echo $property_image; ?>' class='rounded w-full object-cover'
+                        alt='Property Image' style="height: auto;">
                 </div>
 
                 <div class='grid grid-cols-3 gap-4 pt-8'>
@@ -128,7 +129,15 @@
                         </div>
                         <div class='rounded-xl bg-white p-4 shadow'>
                             <h1 class='text-2xl font-semibold'>Location</h1>
-                            <?php echo $property_iframe; ?>
+                            <?php
+                            if (strlen($property_iframe) > 0) {
+                                echo $property_iframe;
+                            } else {
+                                echo "<p class='text-lg text-center'>
+                                Location is not available for this property.
+                                </p>";
+                            }
+                            ?>
                         </div>
                     </div>
 
@@ -189,24 +198,24 @@
                     }
                     ?>
                     <script>
-                        const appForm = document.getElementById('appForm');
-                        const messageError = document.getElementById('messageError');
-                        const message = document.getElementById('message')
+                    const appForm = document.getElementById('appForm');
+                    const messageError = document.getElementById('messageError');
+                    const message = document.getElementById('message')
 
-                        appForm.addEventListener('submit', (e) => {
-                            if (message.value == '') {
-                                e.preventDefault();
-                                messageError.textContent = 'Message cannot be empty.';
-                            } else if (!/[a-zA-Z]/.test(message.value)) {
-                                e.preventDefault();
-                                messageError.textContent = 'Message can not be only numbers.';
-                            } else if (message.value.length < 10) {
-                                e.preventDefault();
-                                messageError.textContent = 'Message must be more than 10 characters.';
-                            } else {
-                                messageError.textContent = '';
-                            }
-                        });
+                    appForm.addEventListener('submit', (e) => {
+                        if (message.value == '') {
+                            e.preventDefault();
+                            messageError.textContent = 'Message cannot be empty.';
+                        } else if (!/[a-zA-Z]/.test(message.value)) {
+                            e.preventDefault();
+                            messageError.textContent = 'Message can not be only numbers.';
+                        } else if (message.value.length < 10 || message.value.length > 400) {
+                            e.preventDefault();
+                            messageError.textContent = 'Message must be between 10 and 400 characters.';
+                        } else {
+                            messageError.textContent = '';
+                        }
+                    });
                     </script>
                 </div>
             </div>

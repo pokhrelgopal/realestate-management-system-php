@@ -139,7 +139,7 @@ if (isset($_POST['changePassword'])) {
                         <script>
                         setTimeout(() => {
                             document.getElementById('error_login').classList.add('hidden');
-                        }, 1000);
+                        }, 3000);
                         </script>";
             }
         } else {
@@ -149,7 +149,7 @@ if (isset($_POST['changePassword'])) {
                         <script>
                         setTimeout(() => {
                             document.getElementById('error_login').classList.add('hidden');
-                        }, 1000);
+                        }, 3000);
                         </script>";
         }
     } else {
@@ -159,7 +159,7 @@ if (isset($_POST['changePassword'])) {
         <script>
         setTimeout(() => {
             document.getElementById('error_login').classList.add('hidden');
-        }, 1000);
+        }, 3000);
         </script>";
     }
 }

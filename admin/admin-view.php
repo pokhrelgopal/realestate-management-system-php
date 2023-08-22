@@ -4,6 +4,12 @@
 <head>
     <?php include 'common/head.php'; ?>
 </head>
+<style>
+iframe {
+    width: 100%;
+    height: 50%;
+}
+</style>
 
 <body class="bg-slate-100">
     <?php
@@ -92,7 +98,15 @@
                     </div>
                     <div class='rounded-xl bg-white p-4 shadow'>
                         <h1 class='text-2xl font-semibold'>Location</h1>
-                        <?php echo $iframe_src; ?>
+                        <?php
+                        if (strlen($iframe_src) > 0) {
+                            echo $iframe_src;
+                        } else {
+                            echo "<p class='text-lg text-center'>
+                                Location is not available for this property.
+                                </p>";
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
