@@ -11,7 +11,7 @@
     session_start();
     if (isset($_SESSION['username'])) {
     ?>
-    <?php include 'common/admin-navbar.php'; ?>
+        <?php include 'common/admin-navbar.php'; ?>
     <?php
     } else {
         header('location:login.php');
@@ -33,57 +33,56 @@
                     $usersResult = mysqli_query($conn, $usersQuery);
                     if (mysqli_num_rows($usersResult) > 0) {
                     ?>
-                    <table class="table-auto w-full">
-                        <thead>
-                            <tr>
-                                <th class="border px-4 py-2">ID</th>
-                                <th class="border px-4 py-2">Name</th>
-                                <th class="border px-4 py-2">Email</th>
-                                <th class="border px-4 py-2">Phone</th>
-                                <th class="border px-4 py-2">Total Listings</th>
-                                <th class="border px-4 py-2">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
+                        <table class="table-auto w-full">
+                            <thead>
+                                <tr>
+                                    <th class="border px-4 py-2">ID</th>
+                                    <th class="border px-4 py-2">Name</th>
+                                    <th class="border px-4 py-2">Email</th>
+                                    <th class="border px-4 py-2">Phone</th>
+                                    <th class="border px-4 py-2">Total Listings</th>
+                                    <th class="border px-4 py-2">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
                                 while ($user = mysqli_fetch_assoc($usersResult)) {
                                 ?>
-                            <tr>
-                                <td class="border px-4 py-2"><?php echo $user['id']; ?></td>
-                                <td class="border px-4 py-2"><?php echo $user['fullname']; ?></td>
-                                <td class="border px-4 py-2"><?php echo $user['email']; ?></td>
-                                <td class="border px-4 py-2"><?php
+                                    <tr>
+                                        <td class="border px-4 py-2"><?php echo $user['id']; ?></td>
+                                        <td class="border px-4 py-2"><?php echo $user['fullname']; ?></td>
+                                        <td class="border px-4 py-2"><?php echo $user['email']; ?></td>
+                                        <td class="border px-4 py-2"><?php
                                                                         if ($user['phone_number'] == '') {
                                                                             echo 'Not Provided';
                                                                         } else {
                                                                             echo $user['phone_number'];
                                                                         }
                                                                         ?>
-                                </td>
-                                <td class="border px-4 py-2 text-center">
-                                    <?php
+                                        </td>
+                                        <td class="border px-4 py-2 text-center">
+                                            <?php
                                             $query = "SELECT * FROM properties WHERE contact_person='$user[id]'";
                                             $result = mysqli_query($conn, $query);
                                             echo mysqli_num_rows($result);
                                             ?>
-                                </td>
-                                <td class="border px-4 py-2 text-center">
-                                    <form action="" method="post">
-                                        <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                                        <button style="background-color: red;" type="submit" name="deleteUser"
-                                            class="text-light p-2 rounded"> Delete
-                                            User</button>
-                                    </form>
-                                </td>
-                            </tr>
+                                        </td>
+                                        <td class="border px-4 py-2 text-center">
+                                            <form action="" method="post">
+                                                <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
+                                                <button style="background-color: red;" type="submit" name="deleteUser" class="text-light p-2 rounded"> Delete
+                                                    User</button>
+                                            </form>
+                                        </td>
+                                    </tr>
                             <?php
                                 }
                             } else {
                                 echo "<h1 class='text-center text-2xl'>No Users Found</h1>";
                             }
                             ?>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
 
                 </div>
             </div>
@@ -108,7 +107,7 @@ if (isset($_POST['deleteUser'])) {
                 setTimeout(() => {
                     document.getElementById('error_login').classList.add('hidden');
                     location.href = 'manage-users.php';
-                }, 1000);
+                }, 3000);
                 </script>
             ";
     } else {

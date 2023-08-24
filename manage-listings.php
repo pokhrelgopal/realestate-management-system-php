@@ -3,8 +3,13 @@
 
 <head>
     <?php include 'common/head.php'; ?>
-</head>
 
+</head>
+<style>
+    .bg-lightYellow {
+        background-color: #FDE68A;
+    }
+</style>
 
 <body class="container mx-auto bg-slate-100">
     <!-- navbar starts -->
@@ -33,12 +38,24 @@
                             $property_province = $row['province'];
                             $property_title = $row['title'];
                             $contact = $row['contact_person'];
+                            $status = $row['status'];
+                            if ($status == "off") {
+                                $class = "bg-lightYellow text-black rounded";
+                                $text = "Pending";
+                            } else if ($status == "reject") {
+                                $class = "bg-lightRed text-light rounded";
+                                $text = "Rejected";
+                            } else {
+                                $class = "bg-lightGreen rounded";
+                                $text = "Approved";
+                            }
                             echo "
                                 <div class='property-block bg-white mb-3 rounded shadow-lg'>
                                 <div class='flex items-center justify-between'>
                                     <div class='flex items-center space-x-3'>
                                         <img src='$property_image' class='h-16 w-20 object-cover rounded-l' alt=''>
                                         <p>$property_title</p>
+                                        <p class='$class' style='padding:2px;'>$text</p>
                                     </div>
                                     <div class='title'></div>
                                     <div class='actions px-3 space-x-4 flex '>

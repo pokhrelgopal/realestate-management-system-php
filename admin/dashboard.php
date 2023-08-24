@@ -6,10 +6,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
 </head>
 <style>
-    .chart-canvasOne {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        max-height: 300px;
-    }
+.chart-canvasOne {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 300px;
+}
 </style>
 
 
@@ -20,7 +20,7 @@
     session_start();
     if (isset($_SESSION['username'])) {
     ?>
-        <?php include 'common/admin-navbar.php'; ?>
+    <?php include 'common/admin-navbar.php'; ?>
     <?php
     } else {
         header('location:login.php');
@@ -121,54 +121,54 @@
                 </div>
 
                 <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                        const ctx2 = document.getElementById("propertiesProvince").getContext("2d");
-                        const data2 = {
-                            labels: [
-                                "Koshi",
-                                "Madhesh",
-                                "Bagmati",
-                                "Gandaki",
-                                "Lumbini",
-                                "Karnali",
-                                "Sudurpaschim",
+                document.addEventListener("DOMContentLoaded", function() {
+                    const ctx = document.getElementById("propertiesProvince").getContext("2d");
+                    const data = {
+                        labels: [
+                            "Koshi",
+                            "Madhesh",
+                            "Bagmati",
+                            "Gandaki",
+                            "Lumbini",
+                            "Karnali",
+                            "Sudurpaschim",
+                        ],
+                        datasets: [{
+                            label: "Property Distribution By Province",
+                            data: [
+                                <?php echo $totalKoshiProperties; ?>,
+                                <?php echo $totalMadheshProperties; ?>,
+                                <?php echo $totalBagmatiProperties; ?>,
+                                <?php echo $totalGandakiProperties; ?>,
+                                <?php echo $totalLumbiniProperties; ?>,
+                                <?php echo $totalKarnaliProperties; ?>,
+                                <?php echo $totalSudurpaschimProperties; ?>,
                             ],
-                            datasets: [{
-                                label: "Property Distribution By Province",
-                                data: [
-                                    <?php echo $totalKoshiProperties; ?>,
-                                    <?php echo $totalMadheshProperties; ?>,
-                                    <?php echo $totalBagmatiProperties; ?>,
-                                    <?php echo $totalGandakiProperties; ?>,
-                                    <?php echo $totalLumbiniProperties; ?>,
-                                    <?php echo $totalKarnaliProperties; ?>,
-                                    <?php echo $totalSudurpaschimProperties; ?>,
-                                ],
-                                backgroundColor: [
-                                    "rgb(255, 99, 132)",
-                                    "rgb(54, 162, 235)",
-                                    "rgb(255, 205, 86)",
-                                    "rgb(75, 192, 192)",
-                                    "rgb(153, 102, 255)",
-                                    "rgb(255, 159, 64)",
-                                    "rgb(255, 99, 132)",
-                                ],
-                                borderWidth: 1
-                            }]
-                        };
-                        const config2 = {
-                            type: "bar",
-                            data: data2,
-                            options: {
-                                scales: {
-                                    y: {
-                                        beginAtZero: true
-                                    }
+                            backgroundColor: [
+                                "rgb(255, 99, 132)",
+                                "rgb(54, 162, 235)",
+                                "rgb(255, 205, 86)",
+                                "rgb(75, 192, 192)",
+                                "rgb(153, 102, 255)",
+                                "rgb(255, 159, 64)",
+                                "rgb(255, 99, 132)",
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+                    const config2 = {
+                        type: "bar",
+                        data: data,
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
                                 }
                             }
-                        };
-                        new Chart(ctx2, config2);
-                    });
+                        }
+                    };
+                    new Chart(ctx, config2);
+                });
                 </script>
 
 

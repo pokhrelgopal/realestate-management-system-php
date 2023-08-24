@@ -86,13 +86,13 @@
             </div>
         </div>
         <script>
-            const messageContainers = document.querySelectorAll('[id^="message-container-"]');
-            messageContainers.forEach(container => {
-                const messageContent = container.querySelector('#message-content');
-                container.addEventListener('click', () => {
-                    messageContent.classList.remove('hidden');
-                });
+        const messageContainers = document.querySelectorAll('[id^="message-container-"]');
+        messageContainers.forEach(container => {
+            const messageContent = container.querySelector('#message-content');
+            container.addEventListener('click', () => {
+                messageContent.classList.remove('hidden');
             });
+        });
         </script>
 </body>
 
@@ -110,8 +110,8 @@ if (isset($_POST['deleteAppointment'])) {
         <script>
         setTimeout(() => {
             document.getElementById('error_login').classList.add('hidden');
-            window.location.href='profile.php'
-        }, 1000);
+            window.location.href='enquiries.php'
+        }, 2000);
         </script>
         ";
     } else {
@@ -121,8 +121,8 @@ if (isset($_POST['deleteAppointment'])) {
         <script>
         setTimeout(() => {
             document.getElementById('error_login').classList.add('hidden');
-            window.location.href='profile.php'
-        }, 1000);
+            window.location.href='enquiries.php'
+        }, 2000);
         </script>
         ";
     }

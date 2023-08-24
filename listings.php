@@ -8,7 +8,7 @@
 <?php
 $filteredResults = array();
 if (isset($_POST['search'])) {
-    $keyword = $_POST['keyword'];
+    $keyword = trim($_POST['keyword']);
     $province = $_POST['province'];
     $city = $_POST['city'];
     $building_type = $_POST['building_type'];

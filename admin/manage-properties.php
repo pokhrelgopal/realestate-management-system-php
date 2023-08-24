@@ -98,7 +98,7 @@ if (isset($_POST['deleteProperty'])) {
                 setTimeout(() => {
                     document.getElementById('error_login').classList.add('hidden');
                     location.href = 'manage-properties.php';
-                }, 1000);
+                }, 3000);
                 </script>
             ";
     } else {

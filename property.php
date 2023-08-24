@@ -5,14 +5,14 @@
     <?php include 'common/connection.php'; ?>
     <?php include 'common/head.php'; ?>
     <style>
-    iframe {
-        width: 100%;
-        height: 500px;
-    }
+        iframe {
+            width: 100%;
+            height: 500px;
+        }
 
-    .text-lightRed {
-        color: #ff0000;
-    }
+        .text-lightRed {
+            color: #ff0000;
+        }
     </style>
 </head>
 
@@ -94,8 +94,7 @@
                 </div>
 
                 <div class="flex justify-center">
-                    <img src='/realestate-change/<?php echo $property_image; ?>' class='rounded w-full object-cover'
-                        alt='Property Image' style="height: auto;">
+                    <img src='/realestate-change/<?php echo $property_image; ?>' class='rounded w-full object-cover' alt='Property Image' style="height: auto;">
                 </div>
 
                 <div class='grid grid-cols-3 gap-4 pt-8'>
@@ -198,24 +197,24 @@
                     }
                     ?>
                     <script>
-                    const appForm = document.getElementById('appForm');
-                    const messageError = document.getElementById('messageError');
-                    const message = document.getElementById('message')
+                        const appForm = document.getElementById('appForm');
+                        const messageError = document.getElementById('messageError');
+                        const message = document.getElementById('message')
 
-                    appForm.addEventListener('submit', (e) => {
-                        if (message.value == '') {
-                            e.preventDefault();
-                            messageError.textContent = 'Message cannot be empty.';
-                        } else if (!/[a-zA-Z]/.test(message.value)) {
-                            e.preventDefault();
-                            messageError.textContent = 'Message can not be only numbers.';
-                        } else if (message.value.length < 10 || message.value.length > 400) {
-                            e.preventDefault();
-                            messageError.textContent = 'Message must be between 10 and 400 characters.';
-                        } else {
-                            messageError.textContent = '';
-                        }
-                    });
+                        appForm.addEventListener('submit', (e) => {
+                            if (message.value.trim() == '') {
+                                e.preventDefault();
+                                messageError.textContent = 'Message cannot be empty.';
+                            } else if (!/[a-zA-Z]/.test(message.value.trim())) {
+                                e.preventDefault();
+                                messageError.textContent = 'Message can not be only numbers.';
+                            } else if (message.value.trim().length < 10 || message.value.trim().length > 300) {
+                                e.preventDefault();
+                                messageError.textContent = 'Message must be between 10 and 300 characters.';
+                            } else {
+                                messageError.textContent = '';
+                            }
+                        });
                     </script>
                 </div>
             </div>
@@ -246,7 +245,7 @@ if (isset($_POST['submit_message'])) {
     $message_name = $name;
     $message_email = $email;
     $message_phone = $phone;
-    $message_text = $_POST['message_text'];
+    $message_text = trim($_POST['message_text']);
 
     $check = "SELECT * FROM messages WHERE sender_id = '$id' AND property_id = '$property_id'";
     $check_result = mysqli_query($conn, $check);

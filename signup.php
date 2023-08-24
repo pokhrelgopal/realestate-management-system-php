@@ -2,11 +2,11 @@
 include 'common/connection.php';
 
 if (isset($_POST['submit'])) {
-    $fullname = $_POST['fullname'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $fullname = trim($_POST['fullname']);
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    $phone = $_POST['phone'];
+    $phone = trim($_POST['phone']);
     $checkSql = "SELECT * FROM users WHERE email='$email'";
     $checkResult = mysqli_query($conn, $checkSql);
     if (mysqli_num_rows($checkResult) > 0) {
@@ -108,11 +108,11 @@ if (isset($_POST['submit'])) {
     <script>
         const myForm = document.getElementById('myForm')
         myForm.addEventListener('submit', function(event) {
-            const fullname = document.getElementById('fullname').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const password = document.getElementById('password').value;
-            const cpassword = document.getElementById('cpassword').value;
+            const fullname = document.getElementById('fullname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const cpassword = document.getElementById('cpassword').value.trim();
             const fnameError = document.getElementById('fnameError');
             const emailError = document.getElementById('emailError');
             const phoneError = document.getElementById('phoneError');

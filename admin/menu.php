@@ -1,3 +1,7 @@
+<style>
+
+</style>
+
 <div class="bg-ivory text-lessDark text-lg h-fit mt-8">
     <a href="/realestate-change/admin/dashboard.php">
         <div class="border-b px-3 py-3 cursor-pointer <?php if (basename($_SERVER['PHP_SELF']) == 'dashboard.php' || basename($_SERVER['PHP_SELF']) == 'add-property.php') echo 'bg-cleanLight'; ?>" id="manageProperties">Dashboard</div>
