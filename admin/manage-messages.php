@@ -11,7 +11,7 @@
     session_start();
     if (isset($_SESSION['username'])) {
     ?>
-    <?php include 'common/admin-navbar.php'; ?>
+        <?php include 'common/admin-navbar.php'; ?>
     <?php
     } else {
         header('location:login.php');
@@ -32,58 +32,56 @@
                     $messageResult = mysqli_query($conn, $messageQuery);
                     if (mysqli_num_rows($messageResult) > 0) {
                     ?>
-                    <table class="table-auto w-full">
-                        <thead>
-                            <tr>
-                                <th class="border px-4 py-2">ID</th>
-                                <th class="border px-4 py-2">Sender Name</th>
-                                <th class="border px-4 py-2">Receiver Name</th>
-                                <th class="border px-4 py-2">Message</th>
-                                <th class="border px-4 py-2">Related Property</th>
-                                <th class="border px-4 py-2">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
+                        <table class="table-auto w-full">
+                            <thead>
+                                <tr>
+                                    <th class="border px-4 py-2">ID</th>
+                                    <th class="border px-4 py-2">Sender Name</th>
+                                    <th class="border px-4 py-2">Receiver Name</th>
+                                    <th class="border px-4 py-2">Message</th>
+                                    <th class="border px-4 py-2">Related Property</th>
+                                    <th class="border px-4 py-2">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
                                 while ($message = mysqli_fetch_assoc($messageResult)) {
                                 ?>
-                            <tr>
-                                <td class="border px-4 py-2"><?php echo $message['message_id']; ?></td>
-                                <td class="border px-4 py-2"><?php echo $message['sender_name']; ?></td>
-                                <td class="border px-4 py-2">
-                                    <?php
+                                    <tr>
+                                        <td class="border px-4 py-2"><?php echo $message['message_id']; ?></td>
+                                        <td class="border px-4 py-2"><?php echo $message['sender_name']; ?></td>
+                                        <td class="border px-4 py-2">
+                                            <?php
                                             $query = "SELECT * FROM users WHERE id='$message[receiver_id]'";
                                             $result = mysqli_query($conn, $query);
                                             $user = mysqli_fetch_assoc($result);
                                             echo $user['fullname'];
                                             ?>
-                                </td>
-                                <td class="border px-4 py-2"><?php echo $message['message']; ?></td>
-                                <td class="border px-4 py-2">
-                                    <?php
+                                        </td>
+                                        <td class="border px-4 py-2"><?php echo $message['message']; ?></td>
+                                        <td class="border px-4 py-2">
+                                            <?php
                                             $query = "SELECT * FROM properties WHERE property_id='$message[property_id]'";
                                             $result = mysqli_query($conn, $query);
                                             $property = mysqli_fetch_assoc($result);
                                             echo $property['title'];
                                             ?>
-                                </td>
-                                <td class="border px-4 py-2 text-center">
-                                    <form action="" method="post">
-                                        <input type="hidden" name="message_id"
-                                            value="<?php echo $message['message_id']; ?>">
-                                        <button style="background-color: red;" type="submit" name="deleteMessage"
-                                            class="text-light text-white p-2 rounded"> Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
+                                        </td>
+                                        <td class="border px-4 py-2 text-center">
+                                            <form action="" method="post">
+                                                <input type="hidden" name="message_id" value="<?php echo $message['message_id']; ?>">
+                                                <button style="background-color: red;" type="submit" name="deleteMessage" class="text-light text-white p-2 rounded"> Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
                             <?php
                                 }
                             } else {
                                 echo "<h1 class='text-center text-2xl'>No Messages Found</h1>";
                             }
                             ?>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
                 </div>
 
             </div>
